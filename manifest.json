@@ -7,15 +7,6 @@
         "owner": "kittyquin",
         "category": "music",
         "imageUrl": "https://libre.fm/favicon.ico",
-        "versions": [
-            {
-                "version": "10.11.0.17",
-                "changelog": "Fork the Jellyfin Last.fm plugin for Libre.fm with Libre.fm as the default API host and a distinct plugin identity.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/kittyquin/jellyfin-plugin-librefm/releases/download/10.11.0.17/librefm_10.11.0.17.zip",
-                "checksum": "",
-                "timestamp": "2026-11-19T00:00:00Z"
-            }
-        ]
+        "versions": []
     }
 ]
