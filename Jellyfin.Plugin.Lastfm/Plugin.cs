@@ -25,13 +25,13 @@
             Instance = this;
         }
 
-        public override Guid Id { get; } = new Guid("5e7fe7f0-b048-429e-a431-b1a7e69c930d");
+        public override Guid Id { get; } = new Guid("7f673779-bd12-4ef5-a804-8985af41374a");
 
         public override string Name
-            => "Last.fm";
+            => "Libre.fm";
 
         public override string Description
-            => "Scrobble your music collection to Last.fm";
+            => "Scrobble your music collection to Libre.fm";
 
         public static Plugin Instance { get; private set; }
 

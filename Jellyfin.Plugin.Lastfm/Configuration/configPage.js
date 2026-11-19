@@ -1,5 +1,5 @@
 var LastfmScrobblerConfigurationPage = {
-    _pluginUniqueId: "5e7fe7f0-b048-429e-a431-b1a7e69c930d",
+    _pluginUniqueId: "7f673779-bd12-4ef5-a804-8985af41374a",
     _users: [],
     _config: [],
 
@@ -10,7 +10,7 @@ var LastfmScrobblerConfigurationPage = {
         Username: '',
         SessionKey: '',
         MediaBrowserUserId: '',
-        LastfmApiHost: 'ws.audioscrobbler.com',
+        LastfmApiHost: 'libre.fm',
         Options: {
             Scrobble: false,
             SyncFavourites: false,
@@ -42,7 +42,7 @@ var LastfmScrobblerConfigurationPage = {
 
             Dashboard.hideLoadingMsg();
         }, this)).then(null, $.proxy(function (error) {
-            this.handleError('Unable to load the Last.fm configuration or Jellyfin user list.', error);
+            this.handleError('Unable to load the Libre.fm configuration or Jellyfin user list.', error);
         }, this));
     },
 
@@ -131,11 +131,11 @@ var LastfmScrobblerConfigurationPage = {
                 return this.doSave();
             }
 
-            var error = new Error(data && data.message ? data.message : 'Last.fm did not return a session.');
-            this.handleError('Unable to authenticate with Last.fm.', error);
+            var error = new Error(data && data.message ? data.message : 'Libre.fm did not return a session.');
+            this.handleError('Unable to authenticate with Libre.fm.', error);
             return null;
         }, this), $.proxy(function (error) {
-            this.handleError('Unable to authenticate with Last.fm.', error);
+            this.handleError('Unable to authenticate with Libre.fm.', error);
             return null;
         }, this));
     },
@@ -203,7 +203,7 @@ var LastfmScrobblerConfigurationPage = {
         self.loadConfiguration().then(function () {
             return self.save(username, password);
         }).then(null, function (error) {
-            self.handleError('Unable to save the Last.fm configuration.', error);
+            self.handleError('Unable to save the Libre.fm configuration.', error);
         });
 
         return false;

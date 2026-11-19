@@ -1,140 +1,20 @@
 [
     {
-        "guid": "5e7fe7f0-b048-429e-a431-b1a7e69c930d",
-        "name": "Last.fm",
-        "description": "Scrobble Last.fm plays with Jellyfin",
-        "overview": "A plugin that scrobbles your Jellyfin music to Last.fm",
-        "owner": "danielfariati",
+        "guid": "7f673779-bd12-4ef5-a804-8985af41374a",
+        "name": "Libre.fm",
+        "description": "Scrobble Libre.fm plays with Jellyfin",
+        "overview": "A plugin that scrobbles your Jellyfin music to Libre.fm",
+        "owner": "kittyquin",
         "category": "music",
-        "imageUrl": "https://www.last.fm/static/images/lastfm_logo_facebook.png",
+        "imageUrl": "https://libre.fm/favicon.ico",
         "versions": [
             {
-                "version": "10.11.0.16",
-                "changelog": "Improve configuration page compatibility by loading its JavaScript through Jellyfin's external controller mechanism instead of an inline script.",
+                "version": "10.11.0.17",
+                "changelog": "Fork the Jellyfin Last.fm plugin for Libre.fm with Libre.fm as the default API host and a distinct plugin identity.",
                 "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.16/lastfm_10.11.0.16.zip",
-                "checksum": "791d0bb758c4c233874b47234c5bd30f",
-                "timestamp": "2026-11-05T16:17:04Z"
-            },
-            {
-                "version": "10.11.0.15",
-                "changelog": "Improve configuration page reliability by preventing duplicate event handlers and reporting loading, authentication, and save failures instead of failing silently.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.15/lastfm_10.11.0.15.zip",
-                "checksum": "06a8a50d8dfb6d023f1c95d9e8a615a1",
-                "timestamp": "2026-11-05T01:10:51Z"
-            },
-            {
-                "version": "10.11.0.14",
-                "changelog": "Prevent duplicate scrobbles when Jellyfin reports multiple stop events for the same playback, while still allowing intentionally repeated tracks to scrobble normally.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.14/lastfm_10.11.0.14.zip",
-                "checksum": "300bc47b28aab7b5606bf9cf248c7629",
-                "timestamp": "2026-11-05T00:48:47Z"
-            },
-            {
-                "version": "10.11.0.13",
-                "changelog": "Consider artist id when syncing favourites",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.13/lastfm_10.11.0.13.zip",
-                "checksum": "5809c1962041da88fc860282fce974cb",
-                "timestamp": "2026-09-30T15:28:51Z"
-            },
-            {
-                "version": "10.11.0.12",
-                "changelog": "Fix for tracks without album artist metadata.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.12/lastfm_10.11.0.12.zip",
-                "checksum": "7def5e48ad860045116cfbb5c2d11276",
-                "timestamp": "2026-09-03T03:06:45Z"
-            },
-            {
-                "version": "10.11.0.11",
-                "changelog": "Fixed audiobooks being incorrectly treated as music and sent to Last.fm as now playing tracks, scrobbles, or favourite updates.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.11/lastfm_10.11.0.11.zip",
-                "checksum": "bb03afbafe50b7ba78e64e488c855eca",
-                "timestamp": "2026-08-29T02:55:37Z"
-            },
-            {
-                "version": "10.11.0.10",
-                "changelog": "Scrobble log messages now include the exact data sent to Last.fm, url encoded and without the credentials, so a rejected scrobble can be replayed as is. This also covers the album artist and the MusicBrainz id, which were never logged before, and makes characters that are invisible in a log, such as non breaking spaces in artist names, easy to spot. This only changes logging, scrobbling behaviour is unchanged.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.10/lastfm_10.11.0.10.zip",
-                "checksum": "0ef019a15fe62b4270c79f5f8b920a87",
-                "timestamp": "2026-07-19T18:06:25Z"
-            },
-            {
-                "version": "10.11.0.9",
-                "changelog": "Playback events received from Jellyfin are now logged, in both the default and the alternative mode, to help debug reports of tracks that never get scrobbled. Some clients do not tell the server that a track was played or stopped, and until now there was no way to tell that apart from the plugin discarding the event. The reason a track was skipped is logged as well. This only adds logging, scrobbling behaviour is unchanged.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.9/lastfm_10.11.0.9.zip",
-                "checksum": "eef26e585b356f603d8fb40067532e29",
-                "timestamp": "2026-07-19T05:27:44Z"
-            },
-            {
-                "version": "10.11.0.8",
-                "changelog": "Scrobbles that Last.fm silently drops are now logged as warnings with the reason, instead of being reported as successful. Last.fm answers those with a normal HTTP 200 and no error code, so they were previously indistinguishable from accepted scrobbles in the logs. This does not change which scrobbles are accepted, it only makes the rejected ones visible.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.8/lastfm_10.11.0.8.zip",
-                "checksum": "a396a3def6ba2f8f09cfc05d781c3066",
-                "timestamp": "2026-07-19T04:49:09Z"
-            },
-            {
-                "version": "10.11.0.7",
-                "changelog": "This version requires Jellyfin 10.11.9 or newer. Jellyfin 10.11.9 changed an internal API the plugin relies on. Fixes the 'Import Last.fm Loved Tracks' task. Also refactored the settings page to use plugin-specific element IDs, avoiding clashes with other plugins' configuration pages - this might fix the user dropdown showing up empty for some users.",
-                "targetAbi": "10.11.9.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.7/lastfm_10.11.0.7.zip",
-                "checksum": "d2089bdcf5d3202d1597138e24aa0350",
-                "timestamp": "2026-07-19T04:04:44Z"
-            },
-            {
-                "version": "10.11.0.6",
-                "changelog": "New API key and secret, since the previous one was blocked or deleted by the original project owner. After upgrading, every user will need to re-enter their credentials for the plugin to work again. There's no way to migrate the old credentials since the API key is different and we don't store the actual user password (we just use it to create a session key). This is a necessary change to keep the plugin working, since the stored session keys were generated with the previous API key that is not valid anymore.",
-                "targetAbi": "10.11.0.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.6/lastfm_10.11.0.6.zip",
-                "checksum": "846b430a3782e7d3ad50d8a398ece2b9",
-                "timestamp": "2026-05-11T20:31:10Z"
-            },
-            {
-                "version": "10.11.0.5",
-                "changelog": "Allowing to change the API Host (Libre.fm support) + Masking password in config page",
-                "targetAbi": "10.11.0.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.5/lastfm_10.11.0.5.zip",
-                "checksum": "bf42c455fdd9f385e97e63b426b8ecdc",
-                "timestamp": "2026-03-03T17:57:04Z"
-            },
-            {
-                "version": "10.11.0.4",
-                "changelog": "Naming convention fixes",
-                "targetAbi": "10.11.0.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.4/lastfm_10.11.0.4.zip",
-                "checksum": "e51d7fd951daf76ae897a2a4bd1d9381",
-                "timestamp": "2026-01-30T02:01:11Z"
-            },
-            {
-                "version": "10.11.0.3",
-                "changelog": "Fixed Jellyfin version support checks, naming consistencies and plugin ID usage",
-                "targetAbi": "10.11.0.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.3/lastfm_10.11.0.3.zip",
-                "checksum": "56033d2ed692ceb2238a016378669062",
-                "timestamp": "2026-01-30T01:36:23Z"
-            },
-            {
-                "version": "10.11.0.0",
-                "changelog": "Prevent duplicate scrobbles by ignoring repeats within 15s",
-                "targetAbi": "10.11.0.0",
-                "sourceUrl": "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/10.11.0.0/lastfm_10.11.0.0.zip",
-                "checksum": "4a0d75d1b029dfd536ee917a2c8d5220",
-                "timestamp": "2026-01-30T00:05:57Z"
-            },
-            {
-                "version": "10.0.0.0",
-                "changelog": "Jellyfin Last.fm build v10.0.0.0",
-                "targetAbi": "10.11.0.0",
-                "sourceUrl": "https://github.com/jesseward/jellyfin-plugin-lastfm/releases/download/10.0.0.0/lastfm_10.0.0.0.zip",
-                "checksum": "32277a418e7cddad5c66865418091438",
-                "timestamp": "2025-10-25T20:03:04Z"
+                "sourceUrl": "https://github.com/kittyquin/jellyfin-plugin-librefm/releases/download/10.11.0.17/librefm_10.11.0.17.zip",
+                "checksum": "",
+                "timestamp": "2026-11-19T00:00:00Z"
             }
         ]
     }

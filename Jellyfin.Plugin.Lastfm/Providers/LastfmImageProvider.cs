@@ -30,7 +30,7 @@ namespace Jellyfin.Plugin.Lastfm.Providers
             get { return ProviderName; }
         }
 
-        public static string ProviderName => "last.fm";
+        public static string ProviderName => "libre.fm";
 
         /// <summary>
         /// Support for Album art only. Last.FM removed support for artist image fetching.

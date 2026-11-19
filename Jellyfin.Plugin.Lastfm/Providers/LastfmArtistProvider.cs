@@ -22,8 +22,8 @@ namespace Jellyfin.Plugin.Lastfm.Providers
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        internal const string RootUrl = @"http://ws.audioscrobbler.com/2.0/?";
-        internal static string ApiKey = "7b76553c3eb1d341d642755aecc40a33";
+        internal const string RootUrl = @"https://libre.fm/2.0/?";
+        internal static string ApiKey = "2be5fb432d4c1264a28b568d3c5d6d60";
 
         private readonly IServerConfigurationManager _config;
         private readonly ILoggerFactory _loggerFactory;
@@ -128,7 +128,7 @@ namespace Jellyfin.Plugin.Lastfm.Providers
 
         public string Name
         {
-            get { return "last.fm"; }
+            get { return "libre.fm"; }
         }
 
         public int Order

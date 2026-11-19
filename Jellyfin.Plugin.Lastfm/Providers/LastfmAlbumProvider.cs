@@ -206,7 +206,7 @@ namespace Jellyfin.Plugin.Lastfm.Providers
 
         public string Name
         {
-            get { return "last.fm"; }
+            get { return "libre.fm"; }
         }
 
         public int Order

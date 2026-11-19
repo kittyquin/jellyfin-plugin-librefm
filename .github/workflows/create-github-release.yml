@@ -71,7 +71,7 @@ jobs:
 
     - name: Create ZIP archive of plugin release
       run: |
-        zip -j "lastfm_${GIT_TAG_NAME}.zip" \
+        zip -j "librefm_${GIT_TAG_NAME}.zip" \
           "$GITHUB_WORKSPACE/build/Jellyfin.Plugin.Lastfm.dll"
 
     - name: Setup Python
@@ -96,14 +96,14 @@ jobs:
           exit 1
         fi
 
-        CK=$(python manifest-tools/md5/md5.py -f "lastfm_${GIT_TAG_NAME}.zip")
+        CK=$(python manifest-tools/md5/md5.py -f "librefm_${GIT_TAG_NAME}.zip")
         python manifest-tools/manifest-generator/manifest.py \
-          -app Last.fm -f manifest.json \
+          -app Libre.fm -f manifest.json \
           version \
           -ver "${GIT_TAG_NAME}" \
           -cl "${CL}" \
           -abi "${ABI}" \
-          -url "https://github.com/danielfariati/jellyfin-plugin-lastfm/releases/download/${GIT_TAG_NAME}/lastfm_${GIT_TAG_NAME}.zip" \
+          -url "https://github.com/kittyquin/jellyfin-plugin-librefm/releases/download/${GIT_TAG_NAME}/librefm_${GIT_TAG_NAME}.zip" \
           -ck "${CK}"
         echo "Updated manifest.json:"
         cat manifest.json
@@ -118,12 +118,12 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: "lastfm_${{ steps.get_tag.outputs.tag }}.zip"
-        asset_name: "lastfm_${{ steps.get_tag.outputs.tag }}.zip"
+        file: "librefm_${{ steps.get_tag.outputs.tag }}.zip"
+        asset_name: "librefm_${{ steps.get_tag.outputs.tag }}.zip"
         tag: ${{ steps.get_tag.outputs.tag }}
         overwrite: true
         body: |
-          Jellyfin lastfm plugin release v${{ steps.get_tag.outputs.tag }}
+          Jellyfin Libre.fm plugin release v${{ steps.get_tag.outputs.tag }}
 
           ${{ env.PLUGIN_CHANGELOG }}
 
